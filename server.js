@@ -13,3 +13,6 @@ app.listen(5000, function(){
 app.get("/", (req, res) => {
     res.end("Server Backend Nodemon Running")
 })
+
+//Import connection to mongodb
+const archiveDB = require("./connection")
