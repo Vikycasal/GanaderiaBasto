@@ -16,3 +16,8 @@ app.get("/", (req, res) => {
 
 //Import connection to mongodb
 const archiveDB = require("./connection")
+
+//Import of the routes file and establishment model
+const routeestablishment = require("./routes/establishment")
+
+app.use("/api/establishment", routeestablishment)
