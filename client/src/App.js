@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ListEstablishment />}/>
           <Route path="/addestablishment" element={<AddEstablishment />}/>
-          <Route path="/editestablishment" element={<EditEstablishment />}/>
+          <Route path="/editestablishment/:idestablishment" element={<EditEstablishment />}/>
         </Routes>
       </BrowserRouter>
   </div>

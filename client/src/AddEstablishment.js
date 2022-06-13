@@ -26,7 +26,7 @@ const [numdevice, setNumdevice] = useState("");
     //Create a route to create the establishment
     axios.post("/api/establishment/addestablishment", establishment)
     .then(res => {
-      alert("res.data")
+      alert(res.data)
     })
     .then(err => {console.log(err)})
   }

@@ -1,10 +1,5 @@
 const mongoose = require("mongoose");
-
-const MONGODB_URI = "mongodb://localhost:27017/ganaderiabasto"
-
-mongoose.connect(MONGODB_URI, {
-
-})
+mongoose.connect("mongodb://localhost:27017/ganaderiabasto")
 
 const objectdb = mongoose.connection
 
