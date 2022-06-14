@@ -80,3 +80,14 @@ router.post("/newestablishment", (req, res) =>{
         }
     }
 })
+
+//Delete establishments
+router.post("/deleteestablishment", (req, res) =>{
+    ModelEstablishment.findOneAndDelete({idestablishment:req.body.idestablishment}, (err) => {
+     if(!err) {
+         res.send("Establishment deleted")
+     } else{
+         res.send(err)
+     }
+    })
+})

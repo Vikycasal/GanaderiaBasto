@@ -1,10 +1,14 @@
 import axios from "axios";
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import styles from "./styles/establishment.css"
+import {MdDeleteOutline} from "react-icons/md"
 
 
 //I will create the list of establishments
 function Establishment({establishment}){
+
+   const navigate = useNavigate()
    //Function to delete establishment
    function deleteestablishment(idestablishment){
     axios.post("/api/establishment/deleteestablishment", {idestablishment : idestablishment})
@@ -12,6 +16,7 @@ function Establishment({establishment}){
         console.log(res.data)
         const dataestablishment = res.data[0]
         alert(res.data)
+        navigate(0)
  
     }).catch(err => {
         console.log(err)
@@ -22,19 +27,34 @@ function Establishment({establishment}){
      return (
          <div className="conatiner">
              <div className="row">
-                <div className="col-sm-6 offset-3">
-               <ul className="list-group">
-                   <li className="list-group-item">{establishment.idestablishment}</li>
-                   <li className="list-group-item">{establishment.name}</li>
-                   <li className="list-group-item">{establishment.kg}</li>
-                   <li className="list-group-item">{establishment.paddock}</li>
-                   <li className="list-group-item">{establishment.device}</li>
-                   <li className="list-group-item">{establishment.numdevice}</li>
-               </ul>
-               <Link to={`/editestablishment/${establishment.idestablishment}`}><li className="btn btn-success">Editar</li></Link>
-               <button className="btn btn-danger" onClick={()=>{deleteestablishment(establishment.idestablishment)}}>Borrar</button>
-               <hr className="mt-4"></hr>
-               </div>
+<table className="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Type of animal</th>
+            <th>Weight in kg</th>
+            <th>Paddock</th>
+            <th>Device</th>
+            <th>Number Device</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{establishment.idestablishment}</td>
+            <td>{establishment.name}</td>
+            <td>{establishment.kg}</td>
+            <td>{establishment.paddock}</td>
+            <td>{establishment.device}</td>
+            <td>{establishment.numdevice}</td>
+            <td><Link to={`/editestablishment/${establishment.idestablishment}`}><li className="btn btn-success">Editar</li></Link></td>
+            <td><button className="btn btn-danger" onClick={()=>{deleteestablishment(establishment.idestablishment)}}>Borrar</button></td>
+        </tr>
+    </tbody>
+</table>
+
              </div>
          </div>
      )
