@@ -3,6 +3,7 @@ import React from "react";
 import {Link, useNavigate} from "react-router-dom"
 import styles from "./styles/establishment.css"
 import {MdDeleteOutline} from "react-icons/md"
+import {BiEdit} from "react-icons/bi"
 
 
 //I will create the list of establishments
@@ -49,8 +50,8 @@ function Establishment({establishment}){
             <td>{establishment.paddock}</td>
             <td>{establishment.device}</td>
             <td>{establishment.numdevice}</td>
-            <td><Link to={`/editestablishment/${establishment.idestablishment}`}><li className="btn btn-success">Editar</li></Link></td>
-            <td><button className="btn btn-danger" onClick={()=>{deleteestablishment(establishment.idestablishment)}}>Borrar</button></td>
+            <td><Link to={`/editestablishment/${establishment.idestablishment}`}><li className="btn btn-success"><BiEdit /></li></Link></td>
+            <td><button className="btn btn-danger" onClick={()=>{deleteestablishment(establishment.idestablishment)}}><MdDeleteOutline /></button></td>
         </tr>
     </tbody>
 </table>

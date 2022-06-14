@@ -3,6 +3,9 @@ import AddEstablishment from './AddEstablishment';
 import EditEstablishment from "./EditEstablishment"
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {FiLogOut} from "react-icons/fi"
+import {BsBell} from "react-icons/bs"
+import styles from "./styles/app.css"
 
 //Once the components are finished, I start to build the routes, first I install react-router-dom
 
@@ -18,12 +21,17 @@ function App() {
        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Inicio</a>
+              <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="addestablishment">Crear nuevo establecimiento</a>
+              <a className="nav-link" href="addestablishment">Crate new establishment</a>
            </li>
          </ul>
+         <div className="icons">
+         <div className="bell"><BsBell /></div>
+         <br />
+         <div className="logout"><FiLogOut /></div>
+         </div>
       </div>
     </div>
      </nav>
