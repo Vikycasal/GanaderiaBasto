@@ -26,3 +26,12 @@
 .text3 {
     margin-right: 1230px;
 }
+
+.search {
+    display: flex;
+}
+
+.form-control{
+ width: 600px;
+ margin-left: 22px;
+}

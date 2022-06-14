@@ -6,10 +6,12 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {FiLogOut} from "react-icons/fi"
 import {BsBell} from "react-icons/bs"
 import styles from "./styles/app.css"
+import { AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai"
 
 //Once the components are finished, I start to build the routes, first I install react-router-dom
 
 function App() {
+  
   return (
   <div className="App">
      <nav className="navbar navbar-expand-lg bg-light">
@@ -43,6 +45,7 @@ function App() {
           <Route path="/editestablishment/:idestablishment" element={<EditEstablishment />}/>
         </Routes>
       </BrowserRouter>
+
   </div>
   );
 }

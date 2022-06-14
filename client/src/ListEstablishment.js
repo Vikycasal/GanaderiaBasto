@@ -8,6 +8,10 @@ import styles from "./styles/listestablishment.css"
 function ListEstablishment(){
 
     const [dataestablishment, setDataestablishment] = useState([])
+  
+    const[cosas, setCosas] = useState(null)
+    const[search, setSearch] = useState("")
+
 
      useEffect(() => {
          axios.get("/api/establishment/getestablishment")
@@ -18,6 +22,22 @@ function ListEstablishment(){
              console.log(err)
          })
      },[])  
+
+    const handleChange=e=>{
+        setSearch(e.target.value)
+        console.log("Search: " +e.target.value)
+        filter(e.target.value);
+    }
+
+   const filter = (termSearch) => {
+       var result = cosas.filter((elemento)=>{
+        if(elemento.name.toString().toLowerCase().includes(termSearch.toLowerCase())
+        ){
+          return elemento;
+        }
+      });
+     
+   }
 
      //Map list of establishments
      const listestablishment = dataestablishment.map(establishment =>{
@@ -42,6 +62,16 @@ function ListEstablishment(){
           <br />
           <br />
           <p className="text2">Name / Registry number</p>
+          <div className="search">
+              <input className="form-control" 
+              value={search}
+              placeholder="Name / Registry number"
+              onChange={handleChange}>
+              </input>
+              <button className="btn btn-success">
+                  Search
+              </button>
+          </div>
           <br />
           <p className="text3">List of establishments</p>
           {listestablishment}

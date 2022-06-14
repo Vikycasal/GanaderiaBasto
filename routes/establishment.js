@@ -57,7 +57,7 @@ router.get("/getestablishment", (req, res) => {
 router.post("/getdataestablishment", (req, res) => {
     ModelEstablishment.find({idestablishment:req.body.idestablishment}, function(docs, err){
         if(!err) {
-            res.send("Obtenido")
+            res.send("Obtein")
         } else {
             res.send(err)
         }
@@ -66,19 +66,19 @@ router.post("/getdataestablishment", (req, res) => {
 
 //Edit establishments
 router.post("/newestablishment", (req, res) =>{
-    ModelEstablishment.findOneAndUpdate({idestablishment:req.body.idestablishment}), {
-        name: req.body.name,
-        kg: req.body.kg,
-        paddock: req.body.paddock,
-        device: req.body.device,
-        numdevice: req.body.numdevice
-    }, (err)=>{
-        if(!err) {
-            res.send("Establishment edit succesfully")
-        }else {
-            res.send(err)
-        }
-    }
+  ModelEstablishment.findOneAndUpdate({idestablishment:req.body.idestablishment}, {
+      name: req.body.name,
+      kg: req.body.kg,
+      paddock: req.body.paddock,
+      device: req.body.device,
+      numdevice: req.body.numdevice
+  }, (err) => {
+      if(!err) {
+          res.send("Establishment edited successfully")
+       }else{
+           res.send(err)
+       }
+  })
 })
 
 //Delete establishments

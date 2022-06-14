@@ -19,19 +19,18 @@ useEffect(() => {
    .then(res =>{
        console.log(res.data[0])
        const dataestablishment = res.data[0]
-       setName(dataestablishment)
-       setKg(dataestablishment)
-       setPaddock(dataestablishment)
-       setDevice(dataestablishment)
-       setNumdevice(dataestablishment)
-
+       setName(dataestablishment.name)
+       setKg(dataestablishment.kg)
+       setPaddock(dataestablishment.paddock)
+       setDevice(dataestablishment.device)
+       setNumdevice(dataestablishment.numdevice)
    })
 },[])
 
 //Edit function
 function editEstablishment(){
    //New object so i can edit establishment
-   const newestablishment ={
+   const newestablishment = { 
     name : name,
     kg : kg,
     paddock : paddock,
@@ -39,7 +38,7 @@ function editEstablishment(){
     numdevice : numdevice,
     idestablishment: params.idestablishment
    }
-//hacer la peticion del cambio
+//here we make de change
    axios.post("/api/establishment/newestablishment", newestablishment)
    .then(res => {
      console.log(res.data)
@@ -74,7 +73,7 @@ function editEstablishment(){
             <label htmlFor="numdevice" className="form-label">Número de dispositivo</label>
             <input type="text" className="form.control" value={numdevice} onChange={(e) => {setNumdevice(e.target.value)}}></input>
           </div>
-          <button  onClick={editEstablishment} className="btn btn-success">Editar establecimiento</button>
+          <button onClick={editEstablishment} className="btn btn-success">Editar establecimiento</button>
         </div>
       </div>
     </div>

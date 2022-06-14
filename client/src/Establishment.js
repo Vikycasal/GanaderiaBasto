@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom"
 import styles from "./styles/establishment.css"
 import {MdDeleteOutline} from "react-icons/md"
@@ -10,6 +10,9 @@ import {BiEdit} from "react-icons/bi"
 function Establishment({establishment}){
 
    const navigate = useNavigate()
+ 
+
+
    //Function to delete establishment
    function deleteestablishment(idestablishment){
     axios.post("/api/establishment/deleteestablishment", {idestablishment : idestablishment})

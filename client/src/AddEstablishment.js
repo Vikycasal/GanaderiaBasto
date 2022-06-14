@@ -45,6 +45,7 @@ const [numdevice, setNumdevice] = useState("");
             <label htmlFor="name" className="form-label">Type of animal</label>
             <br></br>
             <select className="form1" value={name} onChange={(e) => {setName(e.target.value)}}>
+             <option>Select an animal</option>
               <option>Steer</option>
               <option>Bull</option>
               <option>Heifer</option>
@@ -64,6 +65,7 @@ const [numdevice, setNumdevice] = useState("");
             <label htmlFor="device" className="form-label">Type of device</label>
             <br></br>
             <select className="form2" value={device} onChange={(e) => {setDevice(e.target.value)}}>
+              <option>Select a device</option>
               <option>Necklace</option>
               <option>Caravan</option>
             </select>
